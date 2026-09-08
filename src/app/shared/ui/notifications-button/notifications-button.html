@@ -1,0 +1,185 @@
+<div class="relative">
+  <button
+    type="button"
+    class="relative flex h-10 w-10 items-center justify-center rounded-full text-[#536A7A] transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0576CB] focus-visible:ring-offset-2"
+    aria-label="Notificações"
+    [attr.aria-expanded]="isOpen()"
+    (click)="togglePanel()"
+  >
+    <svg
+      aria-hidden="true"
+      class="h-5 w-5"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M18 8A6 6 0 0 0 6 8C6 15 3 16 3 16H21C21 16 18 15 18 8Z"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M10 20A2 2 0 0 0 14 20"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+
+    <span class="absolute right-2 top-2 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white"></span>
+  </button>
+
+  @if (isOpen()) {
+    <section class="absolute right-0 top-12 z-50 w-[430px] rounded-xl border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.16)]">
+      <header class="flex items-center justify-between px-6 py-5">
+        <h2 class="text-base font-bold text-slate-900">
+          Notificações
+        </h2>
+
+        <button
+          type="button"
+          class="text-sm text-[#0576CB] transition hover:text-[#005C99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0576CB] focus-visible:ring-offset-2"
+        >
+          Marcar como lidas
+        </button>
+      </header>
+
+      <div class="px-2 pb-2">
+        <div class="px-2">
+          <div class="flex gap-4 rounded-lg border-b border-slate-200 px-3 py-4 transition hover:bg-[#F1F8FE]">
+            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-400 text-sm font-bold text-white">
+              !
+            </span>
+
+            <div class="min-w-0 flex-1">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-sm font-bold text-slate-900">Estoque baixo</p>
+                  <p class="mt-0.5 text-sm leading-5 text-slate-700">
+                    Detergente enzimático atingiu o nível mínimo.
+                  </p>
+                </div>
+
+                <span class="flex shrink-0 items-center gap-2 text-xs text-[#536A7A]">
+                  há 5 min
+                  <span class="h-2 w-2 rounded-full bg-[#0576CB]"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-4 rounded-lg border-b border-slate-200 px-3 py-4 transition hover:bg-[#F1F8FE]">
+            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-sm font-bold text-white">
+              ✓
+            </span>
+
+            <div class="min-w-0 flex-1">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-sm font-bold text-slate-900">Processo concluído</p>
+                  <p class="mt-0.5 text-sm leading-5 text-slate-700">
+                    RSV-00231 foi concluída.
+                  </p>
+                </div>
+
+                <span class="flex shrink-0 items-center gap-2 text-xs text-[#536A7A]">
+                  há 18 min
+                  <span class="h-2 w-2 rounded-full bg-[#0576CB]"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-4 rounded-lg border-b border-slate-200 px-3 py-4 transition hover:bg-[#F1F8FE]">
+            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sky-400 text-sm font-bold text-white">
+              i
+            </span>
+
+            <div class="min-w-0 flex-1">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-sm font-bold text-slate-900">Nova requisição</p>
+                  <p class="mt-0.5 text-sm leading-5 text-slate-700">
+                    RSV-00238 foi recebida.
+                  </p>
+                </div>
+
+                <span class="shrink-0 text-xs text-[#536A7A]">há 32 min</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-4 rounded-lg border-b border-slate-200 px-3 py-4 transition hover:bg-[#F1F8FE]">
+            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-300 text-sm font-bold text-[#536A7A]">
+              !
+            </span>
+
+            <div class="min-w-0 flex-1">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-sm font-bold text-slate-900">Autoclave indisponível</p>
+                  <p class="mt-0.5 text-sm leading-5 text-slate-700">
+                    Autoclave 2 apresenta falha de temperatura.
+                  </p>
+                </div>
+
+                <span class="shrink-0 text-xs text-[#536A7A]">há 1 h</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-4 rounded-lg px-3 py-4 transition hover:bg-[#F1F8FE]">
+            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-sm font-bold text-white">
+              ✓
+            </span>
+
+            <div class="min-w-0 flex-1">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-sm font-bold text-slate-900">Material disponível</p>
+                  <p class="mt-0.5 text-sm leading-5 text-slate-700">
+                    Sua reserva RSV-00217 está pronta para retirada.
+                  </p>
+                </div>
+
+                <span class="shrink-0 text-xs text-[#536A7A]">há 2 h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="border-t border-slate-200 px-6 py-4">
+        <button
+          type="button"
+          class="flex items-center gap-2 text-sm text-[#0576CB] transition hover:text-[#005C99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0576CB] focus-visible:ring-offset-2"
+        >
+          Ver todas as notificações
+
+          <svg
+            aria-hidden="true"
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M5 12H19"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+            <path
+              d="M13 6L19 12L13 18"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </footer>
+    </section>
+  }
+</div>

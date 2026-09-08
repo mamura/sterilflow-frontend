@@ -1,0 +1,48 @@
+.login-wave {
+  animation-name: login-wave-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.login-wave-1 {
+  fill: rgba(186, 230, 253, 0.45);
+  animation-duration: 9s;
+  animation-delay: -1s;
+}
+
+.login-wave-2 {
+  fill: rgba(125, 211, 252, 0.38);
+  animation-duration: 11s;
+  animation-delay: -4s;
+}
+
+.login-wave-3 {
+  fill: rgba(56, 189, 248, 0.34);
+  animation-duration: 8s;
+  animation-delay: -2s;
+}
+
+.login-wave-4 {
+  fill: rgba(14, 165, 233, 0.42);
+  animation-duration: 13s;
+  animation-delay: -6s;
+}
+
+@keyframes login-wave-float {
+  from {
+    transform: translateY(-5px);
+  }
+
+  to {
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-wave {
+    animation: none;
+  }
+}
