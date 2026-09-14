@@ -56,12 +56,12 @@
       <button
         type="button"
         class="relative z-10 rounded-md text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
-        [class.text-slate-900]="selectedProfile() === 'CLIENT'"
-        [class.text-slate-500]="selectedProfile() !== 'CLIENT'"
-        [attr.aria-pressed]="selectedProfile() === 'CLIENT'"
-        (click)="selectProfile('CLIENT')"
+        [class.text-slate-900]="selectedProfile() === 'STUDENT'"
+        [class.text-slate-500]="selectedProfile() !== 'STUDENT'"
+        [attr.aria-pressed]="selectedProfile() === 'STUDENT'"
+        (click)="selectProfile('STUDENT')"
       >
-        Cliente
+        Estudante
       </button>
 
       <button
@@ -78,21 +78,21 @@
 
     <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-5">
       <div>
-        <label for="email" class="mb-2 block text-sm font-medium text-slate-800">
-          {{ selectedProfile() === 'CLIENT' ? 'R.A.' : 'E-mail' }}
+        <label for="identifier" class="mb-2 block text-sm font-medium text-slate-800">
+          {{ selectedProfile() === 'STUDENT' ? 'R.A.' : 'E-mail ou Username' }}
         </label>
 
         <input
-          id="email"
-          type="email"
-          formControlName="email"
-          autocomplete="email"
+          id="identifier"
+          type="text"
+          formControlName="identifier"
+          autocomplete="username"
           class="h-11 w-full rounded-lg border border-slate-300 px-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-sky-600 focus:ring-4 focus:ring-sky-100"
-          [placeholder]="selectedProfile() === 'CLIENT' ? 'Informe seu R.A.' : 'seu@email.com.br'"
+          [placeholder]="selectedProfile() === 'STUDENT' ? 'Informe seu R.A.' : 'e-mail ou usuário'"
         />
 
-        @if (form.controls.email.touched && form.controls.email.invalid) {
-          <p class="mt-2 text-sm text-red-600">Informe um e-mail válido.</p>
+        @if (form.controls.identifier.touched && form.controls.identifier.invalid) {
+          <p class="mt-2 text-sm text-red-600">Informe sua identificação.</p>
         }
       </div>
 

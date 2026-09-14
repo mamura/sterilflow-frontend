@@ -21,7 +21,10 @@ export function roleGuard(requiredRole: UserRole): CanActivateFn {
 
         return router.parseUrl('/login');
       }),
-      catchError(() => of(router.parseUrl('/login'))),
+      catchError(() => {
+        authService.clearSession();
+        return of(router.parseUrl('/login'));
+      }),
     );
   };
 }

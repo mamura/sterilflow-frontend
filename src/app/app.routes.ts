@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { Login } from './features/auth/pages/login/login';
-import { ClientHome } from './features/clients/pages/client-home/client-home';
+import { StudentHome } from './features/students/pages/student-home/student-home';
 import { OperatorHome } from './features/operators/pages/operator-home/operator-home';
 import { roleGuard } from './features/auth/guards/role.guard';
 import { guestGuard } from './features/auth/guards/guest.guard';
@@ -23,9 +23,9 @@ export const routes: Routes = [
     component: AppLayout,
     children: [
       {
-        path: 'client',
-        component: ClientHome,
-        canActivate: [roleGuard('CLIENT')],
+        path: 'student',
+        component: StudentHome,
+        canActivate: [roleGuard('STUDENT')],
       },
       {
         path: 'operator',

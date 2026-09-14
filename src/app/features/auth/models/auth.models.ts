@@ -1,5 +1,5 @@
 export interface LoginRequest {
-  email: string;
+  identifier: string;
   password: string;
 }
 
@@ -9,15 +9,13 @@ export interface LoginResponse {
   expiresIn: number;
 }
 
-export type UserRole = 'CLIENT' | 'OPERATOR';
-
-export type ClientCategory = string | null;
+export type UserRole = 'STUDENT' | 'OPERATOR';
 
 export interface CurrentUser {
   id: string;
   name: string;
-  institutionalCode: string;
-  email: string;
+  email: string | null;
   roles: UserRole[];
-  clientCategory: ClientCategory;
+  registration: string | null;
+  accessCode: string | null;
 }

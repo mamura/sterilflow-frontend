@@ -27,8 +27,8 @@ export class UserMenu {
       return 'Operador';
     }
 
-    if (roles.includes('CLIENT')) {
-      return 'Cliente';
+    if (roles.includes('STUDENT')) {
+      return 'Estudante';
     }
 
     return 'Perfil';

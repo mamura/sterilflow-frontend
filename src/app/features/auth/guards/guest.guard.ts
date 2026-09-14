@@ -14,6 +14,9 @@ export const guestGuard: CanActivateFn = () => {
 
   return authService.refreshSession().pipe(
     map(() => router.parseUrl(authService.homePathForCurrentUser())),
-    catchError(() => of(true)),
+    catchError(() => {
+      authService.clearSession();
+      return of(true);
+    }),
   );
 };

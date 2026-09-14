@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 
 @Component({
   imports: [],
-  selector: 'app-client-home',
-  styleUrl: './client-home.css',
-  templateUrl: './client-home.html',
+  selector: 'app-student-home',
+  styleUrl: './student-home.css',
+  templateUrl: './student-home.html',
 })
-export class ClientHome {
+export class StudentHome {
   private readonly authService  = inject(AuthService);
   private readonly router       = inject(Router);
 

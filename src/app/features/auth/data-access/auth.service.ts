@@ -43,9 +43,13 @@ export class AuthService {
       )
   }
 
-  logout() {
+  clearSession() {
     this.accessToken.set(null);
     this.user.set(null);
+  }
+
+  logout() {
+    this.clearSession();
 
     return this.http.post(`${this.apiUrl}/logout`, null, {
       withCredentials: true,
@@ -65,8 +69,8 @@ export class AuthService {
       return '/operator';
     }
 
-    if (this.hasRole('CLIENT')) {
-      return '/client';
+    if (this.hasRole('STUDENT')) {
+      return '/student';
     }
 
     return '/login';

@@ -3,7 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AuthService } from '../../data-access/auth.service';
 import { Router } from '@angular/router';
 
-type LoginProfile = 'CLIENT' | 'OPERATOR';
+type LoginProfile = 'STUDENT' | 'OPERATOR';
 
 @Component({
   imports: [ReactiveFormsModule],
@@ -17,12 +17,12 @@ export class Login {
 
   readonly isSubmitting = signal(false);
   readonly errorMessage = signal<string | null>(null);
-  readonly selectedProfile = signal<LoginProfile>('CLIENT');
+  readonly selectedProfile = signal<LoginProfile>('STUDENT');
 
   readonly form = new FormGroup({
-    email: new FormControl('', {
+    identifier: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required, Validators.email],
+      validators: [Validators.required],
     }),
     password: new FormControl('', {
       nonNullable: true,
